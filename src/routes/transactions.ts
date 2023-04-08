@@ -5,18 +5,14 @@ import { randomUUID } from 'node:crypto'
 import { checkSessionIdExits } from '../middlewares/check-session-id-exists'
 
 export async function transactionsRoutes(app: FastifyInstance) {
-  app.get(
-    '/',
-    { preHandler: [checkSessionIdExits] },
-    async (request, reply) => {
-      const { sessionId } = request.cookies
-      const transactions = await knex('transactions')
-        .where('session_id', sessionId)
-        .select()
+  app.get('/', { preHandler: [checkSessionIdExits] }, async (request) => {
+    const { sessionId } = request.cookies
+    const transactions = await knex('transactions')
+      .where('session_id', sessionId)
+      .select()
 
-      return { transactions }
-    },
-  )
+    return { transactions }
+  })
 
   app.get('/:id', { preHandler: [checkSessionIdExits] }, async (request) => {
     const getTransactionParamsSchema = z.object({
