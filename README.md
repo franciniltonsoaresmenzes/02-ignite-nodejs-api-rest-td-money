@@ -1,3 +1,74 @@
+<p align="center">
+  <img src="preview/icon.svg" alt="logo do ignite" width="50px"/>
+  <h1 align="center" >02 ignite nodejs</h1>
+</p>
+
+## Funcionalidades
+
+Nesse modulo foi desenvolvida uma API REST com node.js para controle financeiro.
+
+* `GET - /transactions`
+
+  Listar todas as transactions salvas no banco de dados.
+
+* `GET - /transactions/:id`
+  
+  Pesquisar pelo id um transaction.
+
+* `GET - /transactions/summary`
+
+  Mostrar a soma de entradas e saídas.
+
+* `POST - /transactions`
+
+  Criar uma nova transaction no banco de dados, enviando os campos `title`, `amount` e `type` por meio do `body` da requisição.
+
+## :hammer_and_wrench: Tecnologias
+
+* **Node.Js**
+* **Typescript**
+* **Zod**
+* **Fastify**
+  * @fastify/cookie
+* **Eslint**
+* **Vitest**
+* **Supertest**
+* **Tsup**
+* **Tsx**
+* **Sqlit 3** para ambiente de desenvolvimento.
+* **PostgreSQL** para ambiente de produção.
+
+## 👷 Requisitos
+
+```bash
+# Clone repository
+
+$ git clone https://github.com/franciniltonsoaresmenzes/02-ignite-nodejs-api-rest-td-money.git
+
+# Go to server folder
+
+$ cd 02-ignite-nodejs-api-rest-td-money.git
+
+# Install Dependencies
+
+$ npm i
+
+# Rename file .env.example to .env
+
+# Rename file .env.test.example to .env.test
+
+# Run script Knex
+
+$ npm run knex -- migrate:latest
+
+# Run aplication
+
+$ npm run dev
+
+# Access localhost
+# http://localhost:3333
+```
+
 # RF
 
 - [x] O usuário deve poder criar uma nova transação;
@@ -11,10 +82,3 @@
 - [x] Deve ser possível identificarmos o usuário entre as requisições;
 - [x] O usuário só pode visualizar transações o qual ele criou;
 
-Testes unitários são testes que validam o comportamento de uma única unidade de código, como uma função ou método. Eles são úteis para garantir que cada parte da aplicação esteja funcionando corretamente, sem depender de outras partes.
-
-Testes de integração são testes que validam a integração entre várias partes da aplicação, como a integração entre a camada de banco de dados e a camada de serviço. Eles são importantes para garantir que a aplicação esteja funcionando corretamente como um todo.
-
-Testes e2e (end-to-end) são testes que validam o comportamento da aplicação como um todo, simulando a interação do usuário com a aplicação. Eles são importantes para garantir que a aplicação esteja funcionando corretamente em todos os níveis, desde a camada de interface até a camada de banco de dados.
-
-A pirâmide de testes é uma estratégia que se baseia em ter mais testes unitários e menos testes de integração e e2e, pois testes unitários são mais rápidos e fáceis de escrever e manter do que outros tipos de testes.
